@@ -86,23 +86,23 @@ Byte[]: Encrypted file content
 - **Hash Algorithm**: SHA1  
 - **Encryption**: Custom implementations of TEA, LEA, and CRT algorithms  
 
-## Project Structure
 EncryptorApp/
 ├── Algorithms/
-│ ├── TEA.cs # TEA algorithm
-│ ├── LEA.cs # LEA algorithm
-│ └── CRT.cs # CRT algorithm
+│   ├── TEA.cs                 # TEA algorithm
+│   ├── LEA.cs                 # LEA algorithm
+│   └── CRT.cs                 # CRT algorithm
 ├── Network/
-│ ├── FileTransferServer.cs # TCP server
-│ └── FileTransferClient.cs # TCP client
+│   ├── FileTransferServer.cs  # TCP server
+│   └── FileTransferClient.cs  # TCP client
 ├── Services/
-│ └── EncryptionManager.cs # Algorithm manager
+│   └── EncryptionManager.cs   # Algorithm manager
 ├── Utils/
-│ └── HashUtils.cs # SHA1 utilities
+│   └── HashUtils.cs           # SHA1 utilities
 ├── Enums/
-│ └── EncryptionAlgorithm.cs # Encryption algorithm enum
-├── Form1.cs # Main form
-└── Form1.Designer.cs # UI design
+│   └── EncryptionAlgorithm.cs # Encryption algorithm enum
+├── Form1.cs                   # Main form
+└── Form1.Designer.cs          # UI design
+
 
 
 ## Notes
