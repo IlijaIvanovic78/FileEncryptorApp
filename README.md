@@ -86,25 +86,6 @@ Byte[]: Encrypted file content
 - **Hash Algorithm**: SHA1  
 - **Encryption**: Custom implementations of TEA, LEA, and CRT algorithms  
 
-EncryptorApp/
-├── Algorithms/
-│   ├── TEA.cs                 # TEA algorithm
-│   ├── LEA.cs                 # LEA algorithm
-│   └── CRT.cs                 # CRT algorithm
-├── Network/
-│   ├── FileTransferServer.cs  # TCP server
-│   └── FileTransferClient.cs  # TCP client
-├── Services/
-│   └── EncryptionManager.cs   # Algorithm manager
-├── Utils/
-│   └── HashUtils.cs           # SHA1 utilities
-├── Enums/
-│   └── EncryptionAlgorithm.cs # Encryption algorithm enum
-├── Form1.cs                   # Main form
-└── Form1.Designer.cs          # UI design
-
-
-
 ## Notes
 
 - The app automatically creates Target and X folders if they don't exist  
