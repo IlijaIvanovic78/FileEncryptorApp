@@ -1,111 +1,113 @@
-# Zastita Informacija - Enkriptor/Dekriptor sa TCP
+# Information Security - Encryptor/Decryptor with TCP
 
-Napredna aplikacija za enkriptovanje, dekriptovanje i mreznu razmenu datoteka sa implementiranim algoritmima TEA, LEA i CRT.
+An advanced application for encrypting, decrypting, and network file transfer with implemented TEA, LEA, and CRT algorithms.
 
-## Funkcionalnosti
+## Features
 
-### 1. Algoritmi za enkripciju
-- **TEA (Tiny Encryption Algorithm)** - Brz i jednostavan blok algoritam  
-- **LEA (Lightweight Encryption Algorithm)** - Lagan algoritam optimizovan za performanse  
-- **CRT (Chinese Remainder Theorem)** - Matematski pristup enkripciji  
+### 1. Encryption Algorithms
+- **TEA (Tiny Encryption Algorithm)** - Fast and simple block cipher  
+- **LEA (Lightweight Encryption Algorithm)** - Lightweight algorithm optimized for performance  
+- **CRT (Chinese Remainder Theorem)** - Mathematical approach to encryption  
 
 ### 2. File System Watcher (FSW)
-- Automatsko pracenje Target foldera za nove datoteke  
-- Automatska enkripcija detektovanih datoteka  
-- Cuvanje enkriptovanih datoteka u X folder sa prefiksom "encrypted_"  
-- Real-time status pracenja  
+- Automatic monitoring of the Target folder for new files  
+- Automatic encryption of detected files  
+- Saves encrypted files in the X folder with the prefix `encrypted_`  
+- Real-time monitoring status  
 
-### 3. Rucna enkripcija/dekripcija
-- Manuelno biranje datoteka za enkriptovanje  
-- Dekriptovanje enkriptovanih datoteka  
-- Slobodan izbor lokacije za cuvanje dekriptovanih datoteka  
+### 3. Manual Encryption/Decryption
+- Manual file selection for encryption  
+- Decryption of encrypted files  
+- Freedom to choose output location for decrypted files  
 
-### 4. Mrezna razmena datoteka (TCP)
-- **Server mod**: Primanje enkriptovanih datoteka preko TCP-a  
-- **Klijent mod**: Slanje enkriptovanih datoteka na drugi server  
-- SHA1 hash verifikacija za integritet datoteka  
-- Automatska provera hash vrednosti prilikom prijema  
+### 4. Network File Transfer (TCP)
+- **Server mode**: Receive encrypted files via TCP  
+- **Client mode**: Send encrypted files to another server  
+- SHA1 hash verification for file integrity  
+- Automatic hash check on file reception  
 
-### 5. Kriptografska hash verifikacija
-- SHA1 algoritam za generisanje hash vrednosti  
-- Automatska verifikacija integriteta prenesenih datoteka  
-- Upozorenja u slucaju neispravnog hash-a  
+### 5. Cryptographic Hash Verification
+- SHA1 algorithm for hash generation  
+- Automatic verification of transferred file integrity  
+- Alerts on hash mismatch  
 
-## Koriscenje
+## Usage
 
-### Podesavanja
-1. Izaberite algoritam enkripcije (TEA, LEA ili CRT)  
-2. Postavite Target folder (gde FSW prati nove datoteke)  
-3. Postavite X folder (gde se cuvaju enkriptovane datoteke)  
-4. Unesite kljuc za enkripciju (default: "1234567890abcdef")  
+### Settings
+1. Choose the encryption algorithm (TEA, LEA, or CRT)  
+2. Set the Target folder (where FSW monitors new files)  
+3. Set the X folder (where encrypted files are saved)  
+4. Enter the encryption key (default: `1234567890abcdef`)  
 
 ### File System Watcher
-1. Idite na tab "File System Watcher"  
-2. Kliknite "Pokreni pracenje"  
-3. Dodajte datoteke u Target folder  
-4. Aplikacija ce automatski enkriptovati nove datoteke  
+1. Go to the "File System Watcher" tab  
+2. Click "Start Monitoring"  
+3. Add files to the Target folder  
+4. The application will automatically encrypt new files  
 
-### Rucna enkripcija
-1. Idite na tab "Rucna enkripcija"  
-2. Za enkriptovanje: Kliknite "Enkriptuj fajl" i izaberite datoteku  
-3. Za dekriptovanje: Kliknite "Dekriptuj fajl" i izaberite enkriptovanu datoteku  
+### Manual Encryption
+1. Go to the "Manual Encryption" tab  
+2. To encrypt: Click "Encrypt File" and select a file  
+3. To decrypt: Click "Decrypt File" and select an encrypted file  
 
-### Mrezna razmena
-1. Idite na tab "Mrezna razmena"  
-2. **Za primanje**: Unesite port i kliknite "Pokreni" server  
-3. **Za slanje**: Unesite IP adresu i port odredista, zatim "Posalji fajl"  
+### Network Transfer
+1. Go to the "Network Transfer" tab  
+2. **To receive**: Enter the port and click "Start" (server mode)  
+3. **To send**: Enter the destination IP and port, then click "Send File"  
 
-## Protokol mrezne razmene
+## File Transfer Protocol
 
-Aplikacija koristi sledeci protokol za razmenu datoteka:
+The application uses the following protocol for file transfer:
 
-```
-1. String: Ime datoteke
-2. Long: Velicina datoteke u bajtovima
-3. Int: Duzina SHA1 hash-a (20 bajtova)
-4. Byte[]: SHA1 hash enkriptovane datoteke
-5. Byte[]: Enkriptovani sadrzaj datoteke
-```
+String: File name
 
-## Sigurnosne karakteristike
+Long: File size in bytes
 
-- Svi podaci se prenose u enkriptovanom obliku  
-- SHA1 hash verifikacija za integritet datoteka  
-- Podrska za razlicite algoritme enkripcije  
-- Bezbedna razmena kljuceva (korisnik je odgovoran za distribuciju kljuca)  
+Int: SHA1 hash length (20 bytes)
 
-## Tehnicki detalji
+Byte[]: SHA1 hash of the encrypted file
+
+Byte[]: Encrypted file content
+
+
+## Security Features
+
+- All data is transferred encrypted  
+- SHA1 hash verification ensures file integrity  
+- Supports multiple encryption algorithms  
+- Secure key exchange (user responsible for key distribution)  
+
+## Technical Details
 
 - **Framework**: .NET Framework 4.7.2  
-- **Jezik**: C# 7.3  
+- **Language**: C# 7.3  
 - **UI**: Windows Forms  
-- **Mreza**: TCP soketi  
-- **Hash algoritam**: SHA1  
-- **Enkriptovanje**: Implementirani TEA, LEA i CRT algoritmi  
+- **Network**: TCP sockets  
+- **Hash Algorithm**: SHA1  
+- **Encryption**: Custom implementations of TEA, LEA, and CRT algorithms  
 
-## Struktura projekta
-```
-ZastitaInformacija_18658/
+## Project Structure
+EncryptorApp/
 ├── Algorithms/
-│ ├── TEA.cs # TEA algoritam
-│ ├── LEA.cs # LEA algoritam
-│ └── CRT.cs # CRT algoritam
+│ ├── TEA.cs # TEA algorithm
+│ ├── LEA.cs # LEA algorithm
+│ └── CRT.cs # CRT algorithm
 ├── Network/
 │ ├── FileTransferServer.cs # TCP server
-│ └── FileTransferClient.cs # TCP klijent
+│ └── FileTransferClient.cs # TCP client
 ├── Services/
-│ └── EncryptionManager.cs # Manager za algoritme
+│ └── EncryptionManager.cs # Algorithm manager
 ├── Utils/
 │ └── HashUtils.cs # SHA1 utilities
 ├── Enums/
-│ └── EncryptionAlgorithm.cs # Enum za algoritme
-├── Form1.cs # Glavna forma
-└── Form1.Designer.cs # UI dizajn
-```
+│ └── EncryptionAlgorithm.cs # Encryption algorithm enum
+├── Form1.cs # Main form
+└── Form1.Designer.cs # UI design
 
-## Napomene
 
-- Aplikacija kreira Target i X foldere automatski ako ne postoje  
-- Default lokacije su Desktop\Target i Desktop\X  
-- Svi algoritmi su implementirani "od nule" bez koriscenja spoljnih biblioteka  
-- Aplikacija podrzava i slanje i primanje datoteka istovremeno  
+## Notes
+
+- The app automatically creates Target and X folders if they don't exist  
+- Default locations are `Desktop\Target` and `Desktop\X`  
+- All algorithms are implemented from scratch without external libraries  
+- Supports simultaneous sending and receiving of files  
