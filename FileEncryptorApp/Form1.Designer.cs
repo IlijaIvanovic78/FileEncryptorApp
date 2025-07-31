@@ -432,7 +432,7 @@
             this.txtManualStatus.Name = "txtManualStatus";
             this.txtManualStatus.ReadOnly = true;
             this.txtManualStatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtManualStatus.Size = new System.Drawing.Size(942, 469);
+            this.txtManualStatus.Size = new System.Drawing.Size(977, 469);
             this.txtManualStatus.TabIndex = 3;
             // 
             // tabNetworking
