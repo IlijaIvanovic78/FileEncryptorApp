@@ -92,43 +92,52 @@
             this.tabControl.Controls.Add(this.tabManualEncryption);
             this.tabControl.Controls.Add(this.tabNetworking);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl.Name = "tabControl";
+            this.tabControl.Padding = new System.Drawing.Point(20, 8);
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(900, 600);
+            this.tabControl.Size = new System.Drawing.Size(1038, 650);
             this.tabControl.TabIndex = 0;
             // 
             // tabSettings
             // 
+            this.tabSettings.BackColor = System.Drawing.Color.Lavender;
             this.tabSettings.Controls.Add(this.groupBoxAlgorithm);
             this.tabSettings.Controls.Add(this.groupBoxFolders);
             this.tabSettings.Controls.Add(this.groupBoxKey);
-            this.tabSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabSettings.Location = new System.Drawing.Point(4, 42);
             this.tabSettings.Name = "tabSettings";
-            this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(892, 574);
+            this.tabSettings.Padding = new System.Windows.Forms.Padding(25);
+            this.tabSettings.Size = new System.Drawing.Size(1030, 604);
             this.tabSettings.TabIndex = 0;
-            this.tabSettings.Text = "Podešavanja";
-            this.tabSettings.UseVisualStyleBackColor = true;
+            this.tabSettings.Text = "⚙️ Podešavanja";
             // 
             // groupBoxAlgorithm
             // 
+            this.groupBoxAlgorithm.BackColor = System.Drawing.Color.GhostWhite;
             this.groupBoxAlgorithm.Controls.Add(this.radioButtonCRT);
             this.groupBoxAlgorithm.Controls.Add(this.radioButtonLEA);
             this.groupBoxAlgorithm.Controls.Add(this.radioButtonTEA);
-            this.groupBoxAlgorithm.Location = new System.Drawing.Point(20, 20);
+            this.groupBoxAlgorithm.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.groupBoxAlgorithm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.groupBoxAlgorithm.Location = new System.Drawing.Point(25, 25);
             this.groupBoxAlgorithm.Name = "groupBoxAlgorithm";
-            this.groupBoxAlgorithm.Size = new System.Drawing.Size(850, 80);
+            this.groupBoxAlgorithm.Padding = new System.Windows.Forms.Padding(20);
+            this.groupBoxAlgorithm.Size = new System.Drawing.Size(977, 120);
             this.groupBoxAlgorithm.TabIndex = 0;
             this.groupBoxAlgorithm.TabStop = false;
-            this.groupBoxAlgorithm.Text = "Algoritam enkripcije";
+            this.groupBoxAlgorithm.Text = "🔐 Algoritam enkripcije";
             // 
             // radioButtonCRT
             // 
             this.radioButtonCRT.AutoSize = true;
-            this.radioButtonCRT.Location = new System.Drawing.Point(400, 30);
+            this.radioButtonCRT.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.radioButtonCRT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.radioButtonCRT.Location = new System.Drawing.Point(668, 50);
             this.radioButtonCRT.Name = "radioButtonCRT";
-            this.radioButtonCRT.Size = new System.Drawing.Size(226, 17);
+            this.radioButtonCRT.Size = new System.Drawing.Size(295, 27);
             this.radioButtonCRT.TabIndex = 2;
             this.radioButtonCRT.Text = "CRT (Chinese Remainder Theorem)";
             this.radioButtonCRT.UseVisualStyleBackColor = true;
@@ -136,9 +145,11 @@
             // radioButtonLEA
             // 
             this.radioButtonLEA.AutoSize = true;
-            this.radioButtonLEA.Location = new System.Drawing.Point(200, 30);
+            this.radioButtonLEA.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.radioButtonLEA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.radioButtonLEA.Location = new System.Drawing.Point(318, 50);
             this.radioButtonLEA.Name = "radioButtonLEA";
-            this.radioButtonLEA.Size = new System.Drawing.Size(194, 17);
+            this.radioButtonLEA.Size = new System.Drawing.Size(330, 27);
             this.radioButtonLEA.TabIndex = 1;
             this.radioButtonLEA.Text = "LEA (Lightweight Encryption Algorithm)";
             this.radioButtonLEA.UseVisualStyleBackColor = true;
@@ -147,9 +158,11 @@
             // 
             this.radioButtonTEA.AutoSize = true;
             this.radioButtonTEA.Checked = true;
-            this.radioButtonTEA.Location = new System.Drawing.Point(20, 30);
+            this.radioButtonTEA.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.radioButtonTEA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.radioButtonTEA.Location = new System.Drawing.Point(30, 50);
             this.radioButtonTEA.Name = "radioButtonTEA";
-            this.radioButtonTEA.Size = new System.Drawing.Size(174, 17);
+            this.radioButtonTEA.Size = new System.Drawing.Size(273, 27);
             this.radioButtonTEA.TabIndex = 0;
             this.radioButtonTEA.TabStop = true;
             this.radioButtonTEA.Text = "TEA (Tiny Encryption Algorithm)";
@@ -157,257 +170,339 @@
             // 
             // groupBoxFolders
             // 
+            this.groupBoxFolders.BackColor = System.Drawing.Color.GhostWhite;
             this.groupBoxFolders.Controls.Add(this.btnBrowseOutput);
             this.groupBoxFolders.Controls.Add(this.txtOutputFolder);
             this.groupBoxFolders.Controls.Add(this.lblOutputFolder);
             this.groupBoxFolders.Controls.Add(this.btnBrowseTarget);
             this.groupBoxFolders.Controls.Add(this.txtTargetFolder);
             this.groupBoxFolders.Controls.Add(this.lblTargetFolder);
-            this.groupBoxFolders.Location = new System.Drawing.Point(20, 120);
+            this.groupBoxFolders.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.groupBoxFolders.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.groupBoxFolders.Location = new System.Drawing.Point(25, 165);
             this.groupBoxFolders.Name = "groupBoxFolders";
-            this.groupBoxFolders.Size = new System.Drawing.Size(850, 120);
+            this.groupBoxFolders.Padding = new System.Windows.Forms.Padding(20);
+            this.groupBoxFolders.Size = new System.Drawing.Size(977, 160);
             this.groupBoxFolders.TabIndex = 1;
             this.groupBoxFolders.TabStop = false;
-            this.groupBoxFolders.Text = "Direktorijumi";
+            this.groupBoxFolders.Text = "📁 Direktorijumi";
             // 
             // btnBrowseOutput
             // 
-            this.btnBrowseOutput.Location = new System.Drawing.Point(750, 70);
+            this.btnBrowseOutput.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBrowseOutput.FlatAppearance.BorderSize = 0;
+            this.btnBrowseOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowseOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnBrowseOutput.ForeColor = System.Drawing.Color.White;
+            this.btnBrowseOutput.Location = new System.Drawing.Point(856, 105);
             this.btnBrowseOutput.Name = "btnBrowseOutput";
-            this.btnBrowseOutput.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseOutput.Size = new System.Drawing.Size(98, 30);
             this.btnBrowseOutput.TabIndex = 5;
             this.btnBrowseOutput.Text = "Pretraži";
-            this.btnBrowseOutput.UseVisualStyleBackColor = true;
+            this.btnBrowseOutput.UseVisualStyleBackColor = false;
             this.btnBrowseOutput.Click += new System.EventHandler(this.btnBrowseOutput_Click);
             // 
             // txtOutputFolder
             // 
-            this.txtOutputFolder.Location = new System.Drawing.Point(150, 72);
+            this.txtOutputFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOutputFolder.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtOutputFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.txtOutputFolder.Location = new System.Drawing.Point(200, 105);
             this.txtOutputFolder.Name = "txtOutputFolder";
-            this.txtOutputFolder.Size = new System.Drawing.Size(594, 20);
+            this.txtOutputFolder.Size = new System.Drawing.Size(620, 30);
             this.txtOutputFolder.TabIndex = 4;
             // 
             // lblOutputFolder
             // 
             this.lblOutputFolder.AutoSize = true;
-            this.lblOutputFolder.Location = new System.Drawing.Point(20, 75);
+            this.lblOutputFolder.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblOutputFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.lblOutputFolder.Location = new System.Drawing.Point(26, 112);
             this.lblOutputFolder.Name = "lblOutputFolder";
-            this.lblOutputFolder.Size = new System.Drawing.Size(103, 13);
+            this.lblOutputFolder.Size = new System.Drawing.Size(136, 23);
             this.lblOutputFolder.TabIndex = 3;
             this.lblOutputFolder.Text = "Izlazni folder (X):";
             // 
             // btnBrowseTarget
             // 
-            this.btnBrowseTarget.Location = new System.Drawing.Point(750, 35);
+            this.btnBrowseTarget.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBrowseTarget.FlatAppearance.BorderSize = 0;
+            this.btnBrowseTarget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowseTarget.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnBrowseTarget.ForeColor = System.Drawing.Color.White;
+            this.btnBrowseTarget.Location = new System.Drawing.Point(856, 53);
             this.btnBrowseTarget.Name = "btnBrowseTarget";
-            this.btnBrowseTarget.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseTarget.Size = new System.Drawing.Size(98, 30);
             this.btnBrowseTarget.TabIndex = 2;
             this.btnBrowseTarget.Text = "Pretraži";
-            this.btnBrowseTarget.UseVisualStyleBackColor = true;
+            this.btnBrowseTarget.UseVisualStyleBackColor = false;
             this.btnBrowseTarget.Click += new System.EventHandler(this.btnBrowseTarget_Click);
             // 
             // txtTargetFolder
             // 
-            this.txtTargetFolder.Location = new System.Drawing.Point(150, 37);
+            this.txtTargetFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTargetFolder.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtTargetFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.txtTargetFolder.Location = new System.Drawing.Point(200, 53);
             this.txtTargetFolder.Name = "txtTargetFolder";
-            this.txtTargetFolder.Size = new System.Drawing.Size(594, 20);
+            this.txtTargetFolder.Size = new System.Drawing.Size(620, 30);
             this.txtTargetFolder.TabIndex = 1;
             // 
             // lblTargetFolder
             // 
             this.lblTargetFolder.AutoSize = true;
-            this.lblTargetFolder.Location = new System.Drawing.Point(20, 40);
+            this.lblTargetFolder.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblTargetFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.lblTargetFolder.Location = new System.Drawing.Point(26, 60);
             this.lblTargetFolder.Name = "lblTargetFolder";
-            this.lblTargetFolder.Size = new System.Drawing.Size(124, 13);
+            this.lblTargetFolder.Size = new System.Drawing.Size(162, 23);
             this.lblTargetFolder.TabIndex = 0;
             this.lblTargetFolder.Text = "Ciljni folder (Target):";
             // 
             // groupBoxKey
             // 
+            this.groupBoxKey.BackColor = System.Drawing.Color.GhostWhite;
             this.groupBoxKey.Controls.Add(this.txtEncryptionKey);
             this.groupBoxKey.Controls.Add(this.lblEncryptionKey);
-            this.groupBoxKey.Location = new System.Drawing.Point(20, 260);
+            this.groupBoxKey.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.groupBoxKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.groupBoxKey.Location = new System.Drawing.Point(25, 345);
             this.groupBoxKey.Name = "groupBoxKey";
-            this.groupBoxKey.Size = new System.Drawing.Size(850, 80);
+            this.groupBoxKey.Padding = new System.Windows.Forms.Padding(20);
+            this.groupBoxKey.Size = new System.Drawing.Size(977, 100);
             this.groupBoxKey.TabIndex = 2;
             this.groupBoxKey.TabStop = false;
-            this.groupBoxKey.Text = "Ključ za enkripciju";
+            this.groupBoxKey.Text = "🔑 Ključ za enkripciju";
             // 
             // txtEncryptionKey
             // 
-            this.txtEncryptionKey.Location = new System.Drawing.Point(150, 35);
+            this.txtEncryptionKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEncryptionKey.Font = new System.Drawing.Font("Consolas", 10F);
+            this.txtEncryptionKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.txtEncryptionKey.Location = new System.Drawing.Point(234, 49);
             this.txtEncryptionKey.Name = "txtEncryptionKey";
-            this.txtEncryptionKey.Size = new System.Drawing.Size(594, 20);
+            this.txtEncryptionKey.Size = new System.Drawing.Size(720, 27);
             this.txtEncryptionKey.TabIndex = 1;
             this.txtEncryptionKey.Text = "1234567890abcdef";
             // 
             // lblEncryptionKey
             // 
             this.lblEncryptionKey.AutoSize = true;
-            this.lblEncryptionKey.Location = new System.Drawing.Point(20, 38);
+            this.lblEncryptionKey.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblEncryptionKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.lblEncryptionKey.Location = new System.Drawing.Point(26, 53);
             this.lblEncryptionKey.Name = "lblEncryptionKey";
-            this.lblEncryptionKey.Size = new System.Drawing.Size(106, 13);
+            this.lblEncryptionKey.Size = new System.Drawing.Size(127, 23);
             this.lblEncryptionKey.TabIndex = 0;
             this.lblEncryptionKey.Text = "Ključ enkripcije:";
             // 
             // tabFileWatcher
             // 
+            this.tabFileWatcher.BackColor = System.Drawing.Color.Lavender;
             this.tabFileWatcher.Controls.Add(this.btnStopMonitoring);
             this.tabFileWatcher.Controls.Add(this.btnStartMonitoring);
             this.tabFileWatcher.Controls.Add(this.lblFileWatcherStatus);
             this.tabFileWatcher.Controls.Add(this.txtFileWatcherStatus);
-            this.tabFileWatcher.Location = new System.Drawing.Point(4, 22);
+            this.tabFileWatcher.Location = new System.Drawing.Point(4, 42);
             this.tabFileWatcher.Name = "tabFileWatcher";
-            this.tabFileWatcher.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFileWatcher.Size = new System.Drawing.Size(892, 574);
+            this.tabFileWatcher.Padding = new System.Windows.Forms.Padding(25);
+            this.tabFileWatcher.Size = new System.Drawing.Size(1030, 604);
             this.tabFileWatcher.TabIndex = 1;
-            this.tabFileWatcher.Text = "File System Watcher";
-            this.tabFileWatcher.UseVisualStyleBackColor = true;
+            this.tabFileWatcher.Text = "👁️ File System Watcher";
             // 
             // btnStopMonitoring
             // 
+            this.btnStopMonitoring.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnStopMonitoring.Enabled = false;
-            this.btnStopMonitoring.Location = new System.Drawing.Point(150, 20);
+            this.btnStopMonitoring.FlatAppearance.BorderSize = 0;
+            this.btnStopMonitoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStopMonitoring.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnStopMonitoring.ForeColor = System.Drawing.Color.White;
+            this.btnStopMonitoring.Location = new System.Drawing.Point(217, 25);
             this.btnStopMonitoring.Name = "btnStopMonitoring";
-            this.btnStopMonitoring.Size = new System.Drawing.Size(120, 35);
+            this.btnStopMonitoring.Size = new System.Drawing.Size(186, 45);
             this.btnStopMonitoring.TabIndex = 1;
-            this.btnStopMonitoring.Text = "Zaustavi praćenje";
-            this.btnStopMonitoring.UseVisualStyleBackColor = true;
+            this.btnStopMonitoring.Text = "⏹️ Zaustavi praćenje";
+            this.btnStopMonitoring.UseVisualStyleBackColor = false;
             this.btnStopMonitoring.Click += new System.EventHandler(this.btnStopMonitoring_Click);
             // 
             // btnStartMonitoring
             // 
-            this.btnStartMonitoring.Location = new System.Drawing.Point(20, 20);
+            this.btnStartMonitoring.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnStartMonitoring.FlatAppearance.BorderSize = 0;
+            this.btnStartMonitoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartMonitoring.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnStartMonitoring.ForeColor = System.Drawing.Color.White;
+            this.btnStartMonitoring.Location = new System.Drawing.Point(25, 25);
             this.btnStartMonitoring.Name = "btnStartMonitoring";
-            this.btnStartMonitoring.Size = new System.Drawing.Size(120, 35);
+            this.btnStartMonitoring.Size = new System.Drawing.Size(186, 45);
             this.btnStartMonitoring.TabIndex = 0;
-            this.btnStartMonitoring.Text = "Pokreni praćenje";
-            this.btnStartMonitoring.UseVisualStyleBackColor = true;
+            this.btnStartMonitoring.Text = "▶️ Pokreni praćenje";
+            this.btnStartMonitoring.UseVisualStyleBackColor = false;
             this.btnStartMonitoring.Click += new System.EventHandler(this.btnStartMonitoring_Click);
             // 
             // lblFileWatcherStatus
             // 
             this.lblFileWatcherStatus.AutoSize = true;
-            this.lblFileWatcherStatus.Location = new System.Drawing.Point(20, 75);
+            this.lblFileWatcherStatus.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblFileWatcherStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.lblFileWatcherStatus.Location = new System.Drawing.Point(25, 90);
             this.lblFileWatcherStatus.Name = "lblFileWatcherStatus";
-            this.lblFileWatcherStatus.Size = new System.Drawing.Size(49, 13);
+            this.lblFileWatcherStatus.Size = new System.Drawing.Size(95, 25);
             this.lblFileWatcherStatus.TabIndex = 2;
-            this.lblFileWatcherStatus.Text = "Status:";
+            this.lblFileWatcherStatus.Text = "📋 Status:";
             // 
             // txtFileWatcherStatus
             // 
-            this.txtFileWatcherStatus.Location = new System.Drawing.Point(20, 91);
+            this.txtFileWatcherStatus.BackColor = System.Drawing.Color.GhostWhite;
+            this.txtFileWatcherStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFileWatcherStatus.Font = new System.Drawing.Font("Consolas", 9F);
+            this.txtFileWatcherStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.txtFileWatcherStatus.Location = new System.Drawing.Point(25, 120);
             this.txtFileWatcherStatus.Multiline = true;
             this.txtFileWatcherStatus.Name = "txtFileWatcherStatus";
             this.txtFileWatcherStatus.ReadOnly = true;
             this.txtFileWatcherStatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtFileWatcherStatus.Size = new System.Drawing.Size(850, 460);
+            this.txtFileWatcherStatus.Size = new System.Drawing.Size(977, 469);
             this.txtFileWatcherStatus.TabIndex = 3;
             // 
             // tabManualEncryption
             // 
+            this.tabManualEncryption.BackColor = System.Drawing.Color.Lavender;
             this.tabManualEncryption.Controls.Add(this.btnDecryptFile);
             this.tabManualEncryption.Controls.Add(this.btnEncryptFile);
             this.tabManualEncryption.Controls.Add(this.lblManualStatus);
             this.tabManualEncryption.Controls.Add(this.txtManualStatus);
-            this.tabManualEncryption.Location = new System.Drawing.Point(4, 22);
+            this.tabManualEncryption.Location = new System.Drawing.Point(4, 42);
             this.tabManualEncryption.Name = "tabManualEncryption";
-            this.tabManualEncryption.Padding = new System.Windows.Forms.Padding(3);
-            this.tabManualEncryption.Size = new System.Drawing.Size(892, 574);
+            this.tabManualEncryption.Padding = new System.Windows.Forms.Padding(25);
+            this.tabManualEncryption.Size = new System.Drawing.Size(1030, 604);
             this.tabManualEncryption.TabIndex = 2;
-            this.tabManualEncryption.Text = "Ručna enkripcija";
-            this.tabManualEncryption.UseVisualStyleBackColor = true;
+            this.tabManualEncryption.Text = "🔒 Ručna enkripcija";
             // 
             // btnDecryptFile
             // 
-            this.btnDecryptFile.Location = new System.Drawing.Point(150, 20);
+            this.btnDecryptFile.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnDecryptFile.FlatAppearance.BorderSize = 0;
+            this.btnDecryptFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDecryptFile.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDecryptFile.ForeColor = System.Drawing.Color.White;
+            this.btnDecryptFile.Location = new System.Drawing.Point(217, 25);
             this.btnDecryptFile.Name = "btnDecryptFile";
-            this.btnDecryptFile.Size = new System.Drawing.Size(120, 35);
+            this.btnDecryptFile.Size = new System.Drawing.Size(186, 45);
             this.btnDecryptFile.TabIndex = 1;
-            this.btnDecryptFile.Text = "Dekriptuj fajl";
-            this.btnDecryptFile.UseVisualStyleBackColor = true;
+            this.btnDecryptFile.Text = "🔓 Dekriptuj fajl";
+            this.btnDecryptFile.UseVisualStyleBackColor = false;
             this.btnDecryptFile.Click += new System.EventHandler(this.btnDecryptFile_Click);
             // 
             // btnEncryptFile
             // 
-            this.btnEncryptFile.Location = new System.Drawing.Point(20, 20);
+            this.btnEncryptFile.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnEncryptFile.FlatAppearance.BorderSize = 0;
+            this.btnEncryptFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEncryptFile.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEncryptFile.ForeColor = System.Drawing.Color.White;
+            this.btnEncryptFile.Location = new System.Drawing.Point(25, 25);
             this.btnEncryptFile.Name = "btnEncryptFile";
-            this.btnEncryptFile.Size = new System.Drawing.Size(120, 35);
+            this.btnEncryptFile.Size = new System.Drawing.Size(186, 45);
             this.btnEncryptFile.TabIndex = 0;
-            this.btnEncryptFile.Text = "Enkriptuj fajl";
-            this.btnEncryptFile.UseVisualStyleBackColor = true;
+            this.btnEncryptFile.Text = "🔐 Enkriptuj fajl";
+            this.btnEncryptFile.UseVisualStyleBackColor = false;
             this.btnEncryptFile.Click += new System.EventHandler(this.btnEncryptFile_Click);
             // 
             // lblManualStatus
             // 
             this.lblManualStatus.AutoSize = true;
-            this.lblManualStatus.Location = new System.Drawing.Point(20, 75);
+            this.lblManualStatus.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblManualStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.lblManualStatus.Location = new System.Drawing.Point(25, 90);
             this.lblManualStatus.Name = "lblManualStatus";
-            this.lblManualStatus.Size = new System.Drawing.Size(49, 13);
+            this.lblManualStatus.Size = new System.Drawing.Size(95, 25);
             this.lblManualStatus.TabIndex = 2;
-            this.lblManualStatus.Text = "Status:";
+            this.lblManualStatus.Text = "📋 Status:";
             // 
             // txtManualStatus
             // 
-            this.txtManualStatus.Location = new System.Drawing.Point(20, 91);
+            this.txtManualStatus.BackColor = System.Drawing.Color.GhostWhite;
+            this.txtManualStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtManualStatus.Font = new System.Drawing.Font("Consolas", 9F);
+            this.txtManualStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.txtManualStatus.Location = new System.Drawing.Point(25, 120);
             this.txtManualStatus.Multiline = true;
             this.txtManualStatus.Name = "txtManualStatus";
             this.txtManualStatus.ReadOnly = true;
             this.txtManualStatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtManualStatus.Size = new System.Drawing.Size(850, 460);
+            this.txtManualStatus.Size = new System.Drawing.Size(942, 469);
             this.txtManualStatus.TabIndex = 3;
             // 
             // tabNetworking
             // 
+            this.tabNetworking.BackColor = System.Drawing.Color.Lavender;
             this.tabNetworking.Controls.Add(this.groupBoxServer);
             this.tabNetworking.Controls.Add(this.groupBoxClient);
             this.tabNetworking.Controls.Add(this.lblNetworkStatus);
             this.tabNetworking.Controls.Add(this.txtNetworkStatus);
-            this.tabNetworking.Location = new System.Drawing.Point(4, 22);
+            this.tabNetworking.Location = new System.Drawing.Point(4, 42);
             this.tabNetworking.Name = "tabNetworking";
-            this.tabNetworking.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNetworking.Size = new System.Drawing.Size(892, 574);
+            this.tabNetworking.Padding = new System.Windows.Forms.Padding(25);
+            this.tabNetworking.Size = new System.Drawing.Size(1030, 604);
             this.tabNetworking.TabIndex = 3;
-            this.tabNetworking.Text = "Mrežna razmena";
-            this.tabNetworking.UseVisualStyleBackColor = true;
+            this.tabNetworking.Text = "🌐 Mrežna razmena";
             // 
             // groupBoxServer
             // 
+            this.groupBoxServer.BackColor = System.Drawing.Color.GhostWhite;
             this.groupBoxServer.Controls.Add(this.btnStopServer);
             this.groupBoxServer.Controls.Add(this.btnStartServer);
             this.groupBoxServer.Controls.Add(this.numericUpDownPort);
             this.groupBoxServer.Controls.Add(this.lblPort);
-            this.groupBoxServer.Location = new System.Drawing.Point(20, 20);
+            this.groupBoxServer.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.groupBoxServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.groupBoxServer.Location = new System.Drawing.Point(25, 25);
             this.groupBoxServer.Name = "groupBoxServer";
-            this.groupBoxServer.Size = new System.Drawing.Size(400, 100);
+            this.groupBoxServer.Padding = new System.Windows.Forms.Padding(20);
+            this.groupBoxServer.Size = new System.Drawing.Size(460, 130);
             this.groupBoxServer.TabIndex = 0;
             this.groupBoxServer.TabStop = false;
-            this.groupBoxServer.Text = "Server (Prijem fajlova)";
+            this.groupBoxServer.Text = "📥 Server (Prijem fajlova)";
             // 
             // btnStopServer
             // 
+            this.btnStopServer.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnStopServer.Enabled = false;
-            this.btnStopServer.Location = new System.Drawing.Point(290, 55);
+            this.btnStopServer.FlatAppearance.BorderSize = 0;
+            this.btnStopServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStopServer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnStopServer.ForeColor = System.Drawing.Color.White;
+            this.btnStopServer.Location = new System.Drawing.Point(339, 82);
             this.btnStopServer.Name = "btnStopServer";
-            this.btnStopServer.Size = new System.Drawing.Size(90, 30);
+            this.btnStopServer.Size = new System.Drawing.Size(109, 35);
             this.btnStopServer.TabIndex = 3;
-            this.btnStopServer.Text = "Zaustavi";
-            this.btnStopServer.UseVisualStyleBackColor = true;
+            this.btnStopServer.Text = "⏹️ Zaustavi";
+            this.btnStopServer.UseVisualStyleBackColor = false;
             this.btnStopServer.Click += new System.EventHandler(this.btnStopServer_Click);
             // 
             // btnStartServer
             // 
-            this.btnStartServer.Location = new System.Drawing.Point(190, 55);
+            this.btnStartServer.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnStartServer.FlatAppearance.BorderSize = 0;
+            this.btnStartServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartServer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnStartServer.ForeColor = System.Drawing.Color.White;
+            this.btnStartServer.Location = new System.Drawing.Point(224, 82);
             this.btnStartServer.Name = "btnStartServer";
-            this.btnStartServer.Size = new System.Drawing.Size(90, 30);
+            this.btnStartServer.Size = new System.Drawing.Size(109, 35);
             this.btnStartServer.TabIndex = 2;
-            this.btnStartServer.Text = "Pokreni";
-            this.btnStartServer.UseVisualStyleBackColor = true;
+            this.btnStartServer.Text = "▶️ Pokreni";
+            this.btnStartServer.UseVisualStyleBackColor = false;
             this.btnStartServer.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
             // numericUpDownPort
             // 
-            this.numericUpDownPort.Location = new System.Drawing.Point(70, 30);
+            this.numericUpDownPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDownPort.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.numericUpDownPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.numericUpDownPort.Location = new System.Drawing.Point(78, 45);
             this.numericUpDownPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -419,7 +514,7 @@
             0,
             0});
             this.numericUpDownPort.Name = "numericUpDownPort";
-            this.numericUpDownPort.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownPort.Size = new System.Drawing.Size(120, 30);
             this.numericUpDownPort.TabIndex = 1;
             this.numericUpDownPort.Value = new decimal(new int[] {
             8080,
@@ -430,39 +525,53 @@
             // lblPort
             // 
             this.lblPort.AutoSize = true;
-            this.lblPort.Location = new System.Drawing.Point(20, 32);
+            this.lblPort.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.lblPort.Location = new System.Drawing.Point(23, 52);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(32, 13);
+            this.lblPort.Size = new System.Drawing.Size(45, 23);
             this.lblPort.TabIndex = 0;
             this.lblPort.Text = "Port:";
             // 
             // groupBoxClient
             // 
+            this.groupBoxClient.BackColor = System.Drawing.Color.GhostWhite;
             this.groupBoxClient.Controls.Add(this.btnSendFile);
             this.groupBoxClient.Controls.Add(this.numericUpDownTargetPort);
             this.groupBoxClient.Controls.Add(this.lblTargetPort);
             this.groupBoxClient.Controls.Add(this.txtServerAddress);
             this.groupBoxClient.Controls.Add(this.lblServerAddress);
-            this.groupBoxClient.Location = new System.Drawing.Point(450, 20);
+            this.groupBoxClient.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.groupBoxClient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.groupBoxClient.Location = new System.Drawing.Point(542, 25);
             this.groupBoxClient.Name = "groupBoxClient";
-            this.groupBoxClient.Size = new System.Drawing.Size(420, 100);
+            this.groupBoxClient.Padding = new System.Windows.Forms.Padding(20);
+            this.groupBoxClient.Size = new System.Drawing.Size(460, 130);
             this.groupBoxClient.TabIndex = 1;
             this.groupBoxClient.TabStop = false;
-            this.groupBoxClient.Text = "Klijent (Slanje fajlova)";
+            this.groupBoxClient.Text = "📤 Klijent (Slanje fajlova)";
             // 
             // btnSendFile
             // 
-            this.btnSendFile.Location = new System.Drawing.Point(300, 55);
+            this.btnSendFile.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSendFile.FlatAppearance.BorderSize = 0;
+            this.btnSendFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSendFile.ForeColor = System.Drawing.Color.White;
+            this.btnSendFile.Location = new System.Drawing.Point(338, 82);
             this.btnSendFile.Name = "btnSendFile";
-            this.btnSendFile.Size = new System.Drawing.Size(100, 30);
+            this.btnSendFile.Size = new System.Drawing.Size(110, 35);
             this.btnSendFile.TabIndex = 4;
-            this.btnSendFile.Text = "Pošalji fajl";
-            this.btnSendFile.UseVisualStyleBackColor = true;
+            this.btnSendFile.Text = "📋 Pošalji fajl";
+            this.btnSendFile.UseVisualStyleBackColor = false;
             this.btnSendFile.Click += new System.EventHandler(this.btnSendFile_Click);
             // 
             // numericUpDownTargetPort
             // 
-            this.numericUpDownTargetPort.Location = new System.Drawing.Point(300, 30);
+            this.numericUpDownTargetPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDownTargetPort.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.numericUpDownTargetPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.numericUpDownTargetPort.Location = new System.Drawing.Point(90, 82);
             this.numericUpDownTargetPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -474,7 +583,7 @@
             0,
             0});
             this.numericUpDownTargetPort.Name = "numericUpDownTargetPort";
-            this.numericUpDownTargetPort.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownTargetPort.Size = new System.Drawing.Size(120, 30);
             this.numericUpDownTargetPort.TabIndex = 3;
             this.numericUpDownTargetPort.Value = new decimal(new int[] {
             8080,
@@ -485,46 +594,59 @@
             // lblTargetPort
             // 
             this.lblTargetPort.AutoSize = true;
-            this.lblTargetPort.Location = new System.Drawing.Point(250, 32);
+            this.lblTargetPort.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblTargetPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.lblTargetPort.Location = new System.Drawing.Point(18, 89);
             this.lblTargetPort.Name = "lblTargetPort";
-            this.lblTargetPort.Size = new System.Drawing.Size(32, 13);
+            this.lblTargetPort.Size = new System.Drawing.Size(45, 23);
             this.lblTargetPort.TabIndex = 2;
             this.lblTargetPort.Text = "Port:";
             // 
             // txtServerAddress
             // 
-            this.txtServerAddress.Location = new System.Drawing.Point(70, 30);
+            this.txtServerAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtServerAddress.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtServerAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.txtServerAddress.Location = new System.Drawing.Point(90, 43);
             this.txtServerAddress.Name = "txtServerAddress";
-            this.txtServerAddress.Size = new System.Drawing.Size(150, 20);
+            this.txtServerAddress.Size = new System.Drawing.Size(150, 30);
             this.txtServerAddress.TabIndex = 1;
             this.txtServerAddress.Text = "127.0.0.1";
             // 
             // lblServerAddress
             // 
             this.lblServerAddress.AutoSize = true;
-            this.lblServerAddress.Location = new System.Drawing.Point(20, 33);
+            this.lblServerAddress.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblServerAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.lblServerAddress.Location = new System.Drawing.Point(18, 50);
             this.lblServerAddress.Name = "lblServerAddress";
-            this.lblServerAddress.Size = new System.Drawing.Size(46, 13);
+            this.lblServerAddress.Size = new System.Drawing.Size(66, 23);
             this.lblServerAddress.TabIndex = 0;
             this.lblServerAddress.Text = "Adresa:";
             // 
             // lblNetworkStatus
             // 
             this.lblNetworkStatus.AutoSize = true;
-            this.lblNetworkStatus.Location = new System.Drawing.Point(20, 140);
+            this.lblNetworkStatus.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblNetworkStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.lblNetworkStatus.Location = new System.Drawing.Point(25, 175);
             this.lblNetworkStatus.Name = "lblNetworkStatus";
-            this.lblNetworkStatus.Size = new System.Drawing.Size(49, 13);
+            this.lblNetworkStatus.Size = new System.Drawing.Size(95, 25);
             this.lblNetworkStatus.TabIndex = 2;
-            this.lblNetworkStatus.Text = "Status:";
+            this.lblNetworkStatus.Text = "📋 Status:";
             // 
             // txtNetworkStatus
             // 
-            this.txtNetworkStatus.Location = new System.Drawing.Point(20, 156);
+            this.txtNetworkStatus.BackColor = System.Drawing.Color.GhostWhite;
+            this.txtNetworkStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNetworkStatus.Font = new System.Drawing.Font("Consolas", 9F);
+            this.txtNetworkStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.txtNetworkStatus.Location = new System.Drawing.Point(25, 205);
             this.txtNetworkStatus.Multiline = true;
             this.txtNetworkStatus.Name = "txtNetworkStatus";
             this.txtNetworkStatus.ReadOnly = true;
             this.txtNetworkStatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtNetworkStatus.Size = new System.Drawing.Size(850, 395);
+            this.txtNetworkStatus.Size = new System.Drawing.Size(977, 384);
             this.txtNetworkStatus.TabIndex = 3;
             // 
             // openFileDialog
@@ -539,12 +661,16 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(1038, 650);
             this.Controls.Add(this.tabControl);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.MinimumSize = new System.Drawing.Size(1000, 650);
             this.Name = "Form1";
-            this.Text = "Zaštita Informacija - Enkriptor/Dekriptor sa TCP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "🔐 Zaštita Informacija - Enkriptor/Dekriptor sa TCP";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tabControl.ResumeLayout(false);
             this.tabSettings.ResumeLayout(false);
