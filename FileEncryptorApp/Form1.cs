@@ -501,7 +501,7 @@ namespace ZastitaInformacija_18658
         {
             if (radioButtonTEA.Checked) return EncryptionAlgorithm.TEA;
             if (radioButtonLEA.Checked) return EncryptionAlgorithm.LEA;
-            if (radioButtonCRT.Checked) return EncryptionAlgorithm.CRT;
+            if (radioButtonCRT.Checked) return EncryptionAlgorithm.CTR;
             
             return EncryptionAlgorithm.TEA; // Default
         }

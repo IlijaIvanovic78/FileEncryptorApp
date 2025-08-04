@@ -4,6 +4,6 @@ namespace ZastitaInformacija_18658.Enums
     {
         TEA,
         LEA,
-        CRT
+        CTR
     }
 }

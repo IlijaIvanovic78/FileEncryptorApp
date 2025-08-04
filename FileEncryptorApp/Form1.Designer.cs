@@ -137,9 +137,9 @@
             this.radioButtonCRT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.radioButtonCRT.Location = new System.Drawing.Point(717, 53);
             this.radioButtonCRT.Name = "radioButtonCRT";
-            this.radioButtonCRT.Size = new System.Drawing.Size(237, 23);
+            this.radioButtonCRT.Size = new System.Drawing.Size(150, 23);
             this.radioButtonCRT.TabIndex = 2;
-            this.radioButtonCRT.Text = "CRT (Chinese Remainder Theorem)";
+            this.radioButtonCRT.Text = "CTR (Counter Mode)";
             this.radioButtonCRT.UseVisualStyleBackColor = true;
             // 
             // radioButtonLEA

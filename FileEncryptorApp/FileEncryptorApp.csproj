@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\CRT.cs" />
+    <Compile Include="Algorithms\CTR.cs" />
     <Compile Include="Algorithms\LEA.cs" />
     <Compile Include="Algorithms\TEA.cs" />
     <Compile Include="Configuration\AppConfig.cs" />
@@ -84,7 +84,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

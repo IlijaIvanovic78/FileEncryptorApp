@@ -14,8 +14,8 @@ namespace ZastitaInformacija_18658.Services
                     return TEA.Encrypt(data, key);
                 case EncryptionAlgorithm.LEA:
                     return LEA.Encrypt(data, key);
-                case EncryptionAlgorithm.CRT:
-                    return CRT.Encrypt(data, key);
+                case EncryptionAlgorithm.CTR:
+                    return CTR.Encrypt(data, key);
                 default:
                     throw new ArgumentException($"Unsupported encryption algorithm: {algorithm}");
             }
@@ -29,8 +29,8 @@ namespace ZastitaInformacija_18658.Services
                     return TEA.Decrypt(data, key);
                 case EncryptionAlgorithm.LEA:
                     return LEA.Decrypt(data, key);
-                case EncryptionAlgorithm.CRT:
-                    return CRT.Decrypt(data, key);
+                case EncryptionAlgorithm.CTR:
+                    return CTR.Decrypt(data, key);
                 default:
                     throw new ArgumentException($"Unsupported decryption algorithm: {algorithm}");
             }
@@ -44,8 +44,8 @@ namespace ZastitaInformacija_18658.Services
                     return "TEA (Tiny Encryption Algorithm)";
                 case EncryptionAlgorithm.LEA:
                     return "LEA (Lightweight Encryption Algorithm)";
-                case EncryptionAlgorithm.CRT:
-                    return "CRT (Chinese Remainder Theorem)";
+                case EncryptionAlgorithm.CTR:
+                    return "CTR (Counter Mode)";
                 default:
                     return algorithm.ToString();
             }
