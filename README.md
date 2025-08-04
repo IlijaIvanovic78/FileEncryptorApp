@@ -1,13 +1,13 @@
 # Information Security - Encryptor/Decryptor with TCP
 
-An advanced application for encrypting, decrypting, and network file transfer with implemented TEA, LEA, and CRT algorithms.
+An advanced application for encrypting, decrypting, and network file transfer with implemented TEA, LEA, and CTR algorithms.
 
 ## Features
 
 ### 1. Encryption Algorithms
 - **TEA (Tiny Encryption Algorithm)** - Fast and simple block cipher  
 - **LEA (Lightweight Encryption Algorithm)** - Lightweight algorithm optimized for performance  
-- **CRT (Chinese Remainder Theorem)** - Mathematical approach to encryption  
+- **CTR (Counter Mode)** - Mode of operation for block ciphers using a counter  
 
 ### 2. File System Watcher (FSW)
 - Automatic monitoring of the Target folder for new files  
@@ -23,18 +23,18 @@ An advanced application for encrypting, decrypting, and network file transfer wi
 ### 4. Network File Transfer (TCP)
 - **Server mode**: Receive encrypted files via TCP  
 - **Client mode**: Send encrypted files to another server  
-- SHA1 hash verification for file integrity  
+- SHA-2 hash verification for file integrity  
 - Automatic hash check on file reception  
 
 ### 5. Cryptographic Hash Verification
-- SHA1 algorithm for hash generation  
+- SHA-2 algorithm (SHA-256) for hash generation  
 - Automatic verification of transferred file integrity  
 - Alerts on hash mismatch  
 
 ## Usage
 
 ### Settings
-1. Choose the encryption algorithm (TEA, LEA, or CRT)  
+1. Choose the encryption algorithm (TEA, LEA, or CTR)  
 2. Set the Target folder (where FSW monitors new files)  
 3. Set the X folder (where encrypted files are saved)  
 4. Enter the encryption key (default: `1234567890abcdef`)  
@@ -59,21 +59,16 @@ An advanced application for encrypting, decrypting, and network file transfer wi
 
 The application uses the following protocol for file transfer:
 
-String: File name
-
-Long: File size in bytes
-
-Int: SHA1 hash length (20 bytes)
-
-Byte[]: SHA1 hash of the encrypted file
-
-Byte[]: Encrypted file content
-
+- **String**: File name  
+- **Long**: File size in bytes  
+- **Int**: SHA-2 hash length (32 bytes)  
+- **Byte[]**: SHA-2 hash of the encrypted file  
+- **Byte[]**: Encrypted file content  
 
 ## Security Features
 
 - All data is transferred encrypted  
-- SHA1 hash verification ensures file integrity  
+- SHA-2 hash verification ensures file integrity  
 - Supports multiple encryption algorithms  
 - Secure key exchange (user responsible for key distribution)  
 
@@ -83,8 +78,8 @@ Byte[]: Encrypted file content
 - **Language**: C# 7.3  
 - **UI**: Windows Forms  
 - **Network**: TCP sockets  
-- **Hash Algorithm**: SHA1  
-- **Encryption**: Custom implementations of TEA, LEA, and CRT algorithms  
+- **Hash Algorithm**: SHA-2 (SHA-256)  
+- **Encryption**: Custom implementations of TEA, LEA, and CTR algorithms  
 
 ## Notes
 
