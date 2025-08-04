@@ -107,10 +107,10 @@
             this.tabSettings.Controls.Add(this.groupBoxAlgorithm);
             this.tabSettings.Controls.Add(this.groupBoxFolders);
             this.tabSettings.Controls.Add(this.groupBoxKey);
-            this.tabSettings.Location = new System.Drawing.Point(4, 36);
+            this.tabSettings.Location = new System.Drawing.Point(4, 42);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.Padding = new System.Windows.Forms.Padding(25);
-            this.tabSettings.Size = new System.Drawing.Size(1030, 610);
+            this.tabSettings.Size = new System.Drawing.Size(1030, 604);
             this.tabSettings.TabIndex = 0;
             this.tabSettings.Text = "⚙️ Podešavanja";
             // 
@@ -137,7 +137,7 @@
             this.radioButtonCRT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.radioButtonCRT.Location = new System.Drawing.Point(717, 53);
             this.radioButtonCRT.Name = "radioButtonCRT";
-            this.radioButtonCRT.Size = new System.Drawing.Size(150, 23);
+            this.radioButtonCRT.Size = new System.Drawing.Size(187, 27);
             this.radioButtonCRT.TabIndex = 2;
             this.radioButtonCRT.Text = "CTR (Counter Mode)";
             this.radioButtonCRT.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             this.radioButtonLEA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.radioButtonLEA.Location = new System.Drawing.Point(351, 53);
             this.radioButtonLEA.Name = "radioButtonLEA";
-            this.radioButtonLEA.Size = new System.Drawing.Size(268, 23);
+            this.radioButtonLEA.Size = new System.Drawing.Size(330, 27);
             this.radioButtonLEA.TabIndex = 1;
             this.radioButtonLEA.Text = "LEA (Lightweight Encryption Algorithm)";
             this.radioButtonLEA.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@
             this.radioButtonTEA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.radioButtonTEA.Location = new System.Drawing.Point(30, 53);
             this.radioButtonTEA.Name = "radioButtonTEA";
-            this.radioButtonTEA.Size = new System.Drawing.Size(221, 23);
+            this.radioButtonTEA.Size = new System.Drawing.Size(273, 27);
             this.radioButtonTEA.TabIndex = 0;
             this.radioButtonTEA.TabStop = true;
             this.radioButtonTEA.Text = "TEA (Tiny Encryption Algorithm)";
@@ -209,7 +209,7 @@
             this.txtOutputFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.txtOutputFolder.Location = new System.Drawing.Point(200, 105);
             this.txtOutputFolder.Name = "txtOutputFolder";
-            this.txtOutputFolder.Size = new System.Drawing.Size(620, 25);
+            this.txtOutputFolder.Size = new System.Drawing.Size(620, 30);
             this.txtOutputFolder.TabIndex = 4;
             // 
             // lblOutputFolder
@@ -219,7 +219,7 @@
             this.lblOutputFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.lblOutputFolder.Location = new System.Drawing.Point(26, 111);
             this.lblOutputFolder.Name = "lblOutputFolder";
-            this.lblOutputFolder.Size = new System.Drawing.Size(108, 19);
+            this.lblOutputFolder.Size = new System.Drawing.Size(136, 23);
             this.lblOutputFolder.TabIndex = 3;
             this.lblOutputFolder.Text = "Izlazni folder (X):";
             // 
@@ -245,7 +245,7 @@
             this.txtTargetFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.txtTargetFolder.Location = new System.Drawing.Point(200, 53);
             this.txtTargetFolder.Name = "txtTargetFolder";
-            this.txtTargetFolder.Size = new System.Drawing.Size(620, 25);
+            this.txtTargetFolder.Size = new System.Drawing.Size(620, 30);
             this.txtTargetFolder.TabIndex = 1;
             // 
             // lblTargetFolder
@@ -255,7 +255,7 @@
             this.lblTargetFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.lblTargetFolder.Location = new System.Drawing.Point(26, 59);
             this.lblTargetFolder.Name = "lblTargetFolder";
-            this.lblTargetFolder.Size = new System.Drawing.Size(129, 19);
+            this.lblTargetFolder.Size = new System.Drawing.Size(162, 23);
             this.lblTargetFolder.TabIndex = 0;
             this.lblTargetFolder.Text = "Ciljni folder (Target):";
             // 
@@ -281,7 +281,7 @@
             this.txtEncryptionKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.txtEncryptionKey.Location = new System.Drawing.Point(215, 49);
             this.txtEncryptionKey.Name = "txtEncryptionKey";
-            this.txtEncryptionKey.Size = new System.Drawing.Size(720, 23);
+            this.txtEncryptionKey.Size = new System.Drawing.Size(720, 27);
             this.txtEncryptionKey.TabIndex = 1;
             this.txtEncryptionKey.Text = "1234567890abcdef";
             // 
@@ -292,7 +292,7 @@
             this.lblEncryptionKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.lblEncryptionKey.Location = new System.Drawing.Point(26, 53);
             this.lblEncryptionKey.Name = "lblEncryptionKey";
-            this.lblEncryptionKey.Size = new System.Drawing.Size(101, 19);
+            this.lblEncryptionKey.Size = new System.Drawing.Size(127, 23);
             this.lblEncryptionKey.TabIndex = 0;
             this.lblEncryptionKey.Text = "Ključ enkripcije:";
             // 
@@ -303,10 +303,10 @@
             this.tabFileWatcher.Controls.Add(this.btnStartMonitoring);
             this.tabFileWatcher.Controls.Add(this.lblFileWatcherStatus);
             this.tabFileWatcher.Controls.Add(this.txtFileWatcherStatus);
-            this.tabFileWatcher.Location = new System.Drawing.Point(4, 36);
+            this.tabFileWatcher.Location = new System.Drawing.Point(4, 42);
             this.tabFileWatcher.Name = "tabFileWatcher";
             this.tabFileWatcher.Padding = new System.Windows.Forms.Padding(25);
-            this.tabFileWatcher.Size = new System.Drawing.Size(1030, 610);
+            this.tabFileWatcher.Size = new System.Drawing.Size(1030, 604);
             this.tabFileWatcher.TabIndex = 1;
             this.tabFileWatcher.Text = "👁️ File System Watcher";
             // 
@@ -348,7 +348,7 @@
             this.lblFileWatcherStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.lblFileWatcherStatus.Location = new System.Drawing.Point(21, 101);
             this.lblFileWatcherStatus.Name = "lblFileWatcherStatus";
-            this.lblFileWatcherStatus.Size = new System.Drawing.Size(79, 20);
+            this.lblFileWatcherStatus.Size = new System.Drawing.Size(95, 25);
             this.lblFileWatcherStatus.TabIndex = 2;
             this.lblFileWatcherStatus.Text = "📋 Status:";
             // 
@@ -373,10 +373,10 @@
             this.tabManualEncryption.Controls.Add(this.btnEncryptFile);
             this.tabManualEncryption.Controls.Add(this.lblManualStatus);
             this.tabManualEncryption.Controls.Add(this.txtManualStatus);
-            this.tabManualEncryption.Location = new System.Drawing.Point(4, 36);
+            this.tabManualEncryption.Location = new System.Drawing.Point(4, 42);
             this.tabManualEncryption.Name = "tabManualEncryption";
             this.tabManualEncryption.Padding = new System.Windows.Forms.Padding(25);
-            this.tabManualEncryption.Size = new System.Drawing.Size(1030, 610);
+            this.tabManualEncryption.Size = new System.Drawing.Size(1030, 604);
             this.tabManualEncryption.TabIndex = 2;
             this.tabManualEncryption.Text = "🔒 Ručna enkripcija";
             // 
@@ -417,7 +417,7 @@
             this.lblManualStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.lblManualStatus.Location = new System.Drawing.Point(21, 101);
             this.lblManualStatus.Name = "lblManualStatus";
-            this.lblManualStatus.Size = new System.Drawing.Size(79, 20);
+            this.lblManualStatus.Size = new System.Drawing.Size(95, 25);
             this.lblManualStatus.TabIndex = 2;
             this.lblManualStatus.Text = "📋 Status:";
             // 
@@ -442,10 +442,10 @@
             this.tabNetworking.Controls.Add(this.groupBoxClient);
             this.tabNetworking.Controls.Add(this.lblNetworkStatus);
             this.tabNetworking.Controls.Add(this.txtNetworkStatus);
-            this.tabNetworking.Location = new System.Drawing.Point(4, 36);
+            this.tabNetworking.Location = new System.Drawing.Point(4, 42);
             this.tabNetworking.Name = "tabNetworking";
             this.tabNetworking.Padding = new System.Windows.Forms.Padding(25);
-            this.tabNetworking.Size = new System.Drawing.Size(1030, 610);
+            this.tabNetworking.Size = new System.Drawing.Size(1030, 604);
             this.tabNetworking.TabIndex = 3;
             this.tabNetworking.Text = "🌐 Mrežna razmena";
             // 
@@ -514,7 +514,7 @@
             0,
             0});
             this.numericUpDownPort.Name = "numericUpDownPort";
-            this.numericUpDownPort.Size = new System.Drawing.Size(150, 25);
+            this.numericUpDownPort.Size = new System.Drawing.Size(150, 30);
             this.numericUpDownPort.TabIndex = 1;
             this.numericUpDownPort.Value = new decimal(new int[] {
             8080,
@@ -529,7 +529,7 @@
             this.lblPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.lblPort.Location = new System.Drawing.Point(17, 43);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(37, 19);
+            this.lblPort.Size = new System.Drawing.Size(45, 23);
             this.lblPort.TabIndex = 0;
             this.lblPort.Text = "Port:";
             // 
@@ -583,7 +583,7 @@
             0,
             0});
             this.numericUpDownTargetPort.Name = "numericUpDownTargetPort";
-            this.numericUpDownTargetPort.Size = new System.Drawing.Size(150, 25);
+            this.numericUpDownTargetPort.Size = new System.Drawing.Size(150, 30);
             this.numericUpDownTargetPort.TabIndex = 3;
             this.numericUpDownTargetPort.Value = new decimal(new int[] {
             8080,
@@ -598,7 +598,7 @@
             this.lblTargetPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.lblTargetPort.Location = new System.Drawing.Point(11, 78);
             this.lblTargetPort.Name = "lblTargetPort";
-            this.lblTargetPort.Size = new System.Drawing.Size(37, 19);
+            this.lblTargetPort.Size = new System.Drawing.Size(45, 23);
             this.lblTargetPort.TabIndex = 2;
             this.lblTargetPort.Text = "Port:";
             // 
@@ -609,7 +609,7 @@
             this.txtServerAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.txtServerAddress.Location = new System.Drawing.Point(71, 41);
             this.txtServerAddress.Name = "txtServerAddress";
-            this.txtServerAddress.Size = new System.Drawing.Size(150, 25);
+            this.txtServerAddress.Size = new System.Drawing.Size(150, 30);
             this.txtServerAddress.TabIndex = 1;
             this.txtServerAddress.Text = "127.0.0.1";
             // 
@@ -620,7 +620,7 @@
             this.lblServerAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.lblServerAddress.Location = new System.Drawing.Point(11, 43);
             this.lblServerAddress.Name = "lblServerAddress";
-            this.lblServerAddress.Size = new System.Drawing.Size(54, 19);
+            this.lblServerAddress.Size = new System.Drawing.Size(66, 23);
             this.lblServerAddress.TabIndex = 0;
             this.lblServerAddress.Text = "Adresa:";
             // 
@@ -631,7 +631,7 @@
             this.lblNetworkStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.lblNetworkStatus.Location = new System.Drawing.Point(21, 186);
             this.lblNetworkStatus.Name = "lblNetworkStatus";
-            this.lblNetworkStatus.Size = new System.Drawing.Size(79, 20);
+            this.lblNetworkStatus.Size = new System.Drawing.Size(95, 25);
             this.lblNetworkStatus.TabIndex = 2;
             this.lblNetworkStatus.Text = "📋 Status:";
             // 
@@ -661,7 +661,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1038, 650);

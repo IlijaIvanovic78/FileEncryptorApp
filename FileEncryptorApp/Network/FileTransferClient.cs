@@ -24,10 +24,10 @@ namespace ZastitaInformacija_18658.Network
                     using (var stream = client.GetStream())
                     using (var writer = new BinaryWriter(stream))
                     {
-                        // Compute hash of encrypted data
-                        byte[] hash = HashUtils.ComputeSHA1Hash(encryptedData);
+                        // Compute SHA-256 hash of encrypted data
+                        byte[] hash = HashUtils.ComputeSHA256Hash(encryptedData);
                         
-                        // Send file information and data
+                        // Salje informacije o fajlu i fajl
                         writer.Write(fileName);
                         writer.Write((long)encryptedData.Length);
                         writer.Write(hash.Length);
@@ -35,7 +35,7 @@ namespace ZastitaInformacija_18658.Network
                         writer.Write(encryptedData);
                         
                         OnStatusChanged($"File sent: {fileName} ({encryptedData.Length} bytes)");
-                        OnStatusChanged($"Hash: {HashUtils.HashToString(hash)}");
+                        OnStatusChanged($"SHA-256 Hash: {HashUtils.HashToString(hash)}");
                     }
                 }
             }
@@ -48,6 +48,7 @@ namespace ZastitaInformacija_18658.Network
 
         protected virtual void OnStatusChanged(string status)
         {
+            //event kada se status promeni
             StatusChanged?.Invoke(this, status);
         }
     }

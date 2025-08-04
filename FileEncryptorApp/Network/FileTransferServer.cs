@@ -19,17 +19,20 @@ namespace ZastitaInformacija_18658.Network
         {
             try
             {
+                //pokrecemo tcp na datom portu za bilo koju ip adresu
                 tcpListener = new TcpListener(IPAddress.Any, port);
                 tcpListener.Start();
                 isListening = true;
                 
                 OnStatusChanged($"Server started on port {port}");
-                
+
                 while (isListening)
                 {
+                    //ceka nove klijente
                     var tcpClient = await AcceptTcpClientAsync();
                     if (tcpClient != null)
                     {
+                        //svakog novog klijenta startuje u posebnan task
                         _ = Task.Run(() => HandleClient(tcpClient));
                     }
                 }
@@ -42,6 +45,7 @@ namespace ZastitaInformacija_18658.Network
 
         public void StopServer()
         {
+            //gasi tcpListener i postavlja isListening na false
             isListening = false;
             tcpListener?.Stop();
             OnStatusChanged("Server stopped");
@@ -51,6 +55,7 @@ namespace ZastitaInformacija_18658.Network
         {
             try
             {
+                //ceka klijenta da se poveze na tcplisener instancu
                 return await tcpListener.AcceptTcpClientAsync();
             }
             catch (ObjectDisposedException)
@@ -69,18 +74,17 @@ namespace ZastitaInformacija_18658.Network
                 {
                     OnStatusChanged("Client connected, receiving file...");
                     
-                    // Read file information
-                    string fileName = reader.ReadString();
-                    long fileSize = reader.ReadInt64();
-                    int hashLength = reader.ReadInt32();
-                    byte[] receivedHash = reader.ReadBytes(hashLength);
-                    
-                    // Read encrypted file data
+                    string fileName = reader.ReadString();//cita ime fajla
+                    long fileSize = reader.ReadInt64();//velicinu
+                    int hashLength = reader.ReadInt32();//hash duzinu
+                    byte[] receivedHash = reader.ReadBytes(hashLength);//hash
+
+                    // cita enkriptovane podatke
                     byte[] encryptedData = reader.ReadBytes((int)fileSize);
                     
                     OnStatusChanged($"Received file: {fileName} ({fileSize} bytes)");
                     
-                    // Verify hash
+                    // Proverava hash da li je validan
                     bool hashValid = HashUtils.VerifyHash(encryptedData, receivedHash);
                     
                     OnFileReceived(new FileReceivedEventArgs
@@ -91,7 +95,7 @@ namespace ZastitaInformacija_18658.Network
                         IsHashValid = hashValid
                     });
                     
-                    OnStatusChanged($"File transfer completed. Hash valid: {hashValid}");
+                    OnStatusChanged($"File transfer completed. SHA-256 Hash valid: {hashValid}");
                 }
             }
             catch (Exception ex)
@@ -102,11 +106,13 @@ namespace ZastitaInformacija_18658.Network
 
         protected virtual void OnStatusChanged(string status)
         {
+            //event kada se status promeni
             StatusChanged?.Invoke(this, status);
         }
 
         protected virtual void OnFileReceived(FileReceivedEventArgs args)
         {
+            //event kada je fajl primljen
             FileReceived?.Invoke(this, args);
         }
     }

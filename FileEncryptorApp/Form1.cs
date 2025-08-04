@@ -33,19 +33,15 @@ namespace ZastitaInformacija_18658
 
         private void InitializeDefaultSettings()
         {
-            // Set default folders
             txtTargetFolder.Text = AppConfig.GetDefaultTargetFolder();
             txtOutputFolder.Text = AppConfig.GetDefaultOutputFolder();
             
-            // Set default key
             txtEncryptionKey.Text = AppConfig.DEFAULT_KEY;
             
-            // Set default network settings
             numericUpDownPort.Value = AppConfig.DEFAULT_SERVER_PORT;
             numericUpDownTargetPort.Value = AppConfig.DEFAULT_SERVER_PORT;
             txtServerAddress.Text = AppConfig.DEFAULT_SERVER_ADDRESS;
             
-            // Set default algorithm (TEA is already selected)
             radioButtonTEA.Checked = true;
         }
 
@@ -103,14 +99,12 @@ namespace ZastitaInformacija_18658
                     return;
                 }
 
-                // Create directories if they don't exist
                 if (!Directory.Exists(txtTargetFolder.Text))
                     Directory.CreateDirectory(txtTargetFolder.Text);
                 
                 if (!Directory.Exists(txtOutputFolder.Text))
                     Directory.CreateDirectory(txtOutputFolder.Text);
 
-                // Initialize FileSystemWatcher
                 fileSystemWatcher = new FileSystemWatcher();
                 fileSystemWatcher.Path = txtTargetFolder.Text;
                 fileSystemWatcher.Filter = "*.*";
@@ -154,31 +148,24 @@ namespace ZastitaInformacija_18658
         {
             try
             {
-                // Wait a bit to ensure file is completely written
+                //Cekamo da budemo sigurni da je fajl potpuno kreiran
                 System.Threading.Thread.Sleep(100);
 
-                // Check if file still exists and is not a directory
                 if (!File.Exists(e.FullPath))
                     return;
 
-                // Read the file
                 byte[] fileContent = File.ReadAllBytes(e.FullPath);
                 
-                // Get selected algorithm
                 EncryptionAlgorithm algorithm = GetSelectedAlgorithm();
                 string key = txtEncryptionKey.Text;
                 
-                // Encrypt using selected algorithm
                 byte[] encryptedContent = EncryptionManager.Encrypt(fileContent, algorithm, key);
 
-                // Create output filename
                 string outputFileName = AppConfig.CreateEncryptedFileName(e.Name);
                 string outputPath = Path.Combine(txtOutputFolder.Text, outputFileName);
 
-                // Save encrypted file
                 File.WriteAllBytes(outputPath, encryptedContent);
 
-                // Update status on UI thread
                 Invoke(new Action(() =>
                 {
                     AddFileWatcherStatus($"Fajl obrađen: {e.Name} -> {outputFileName}");
@@ -221,23 +208,18 @@ namespace ZastitaInformacija_18658
                     string inputFile = openFileDialog.FileName;
                     AddManualStatus($"Učitava se fajl: {inputFile}");
                     
-                    // Read file
                     byte[] fileContent = File.ReadAllBytes(inputFile);
                     AddManualStatus($"Pročitano {fileContent.Length} bajtova");
                     
-                    // Get selected algorithm
                     EncryptionAlgorithm algorithm = GetSelectedAlgorithm();
                     string key = txtEncryptionKey.Text;
                     
-                    // Encrypt
                     byte[] encryptedContent = EncryptionManager.Encrypt(fileContent, algorithm, key);
                     AddManualStatus($"Enkripcija završena. Enkriptovano {encryptedContent.Length} bajtova");
                     
-                    // Create directories if they don't exist
                     if (!Directory.Exists(txtOutputFolder.Text))
                         Directory.CreateDirectory(txtOutputFolder.Text);
                     
-                    // Save encrypted file
                     string originalFileName = Path.GetFileNameWithoutExtension(inputFile);
                     string outputFileName = $"encrypted_{originalFileName}.txt";
                     string outputPath = Path.Combine(txtOutputFolder.Text, outputFileName);
@@ -272,25 +254,21 @@ namespace ZastitaInformacija_18658
                     string inputFile = openFileDialog.FileName;
                     AddManualStatus($"Učitava se enkriptovani fajl: {inputFile}");
                     
-                    // Read encrypted file
                     byte[] encryptedContent = File.ReadAllBytes(inputFile);
                     AddManualStatus($"Pročitano {encryptedContent.Length} bajtova");
                     
-                    // Get selected algorithm
                     EncryptionAlgorithm algorithm = GetSelectedAlgorithm();
                     string key = txtEncryptionKey.Text;
                     
-                    // Decrypt
                     byte[] decryptedContent = EncryptionManager.Decrypt(encryptedContent, algorithm, key);
                     AddManualStatus($"Dekripcija završena. Dekriptovano {decryptedContent.Length} bajtova");
                     
-                    // Save decrypted file
                     saveFileDialog.Title = "Sačuvajte dekriptovani fajl";
                     saveFileDialog.Filter = "Svi fajlovi (*.*)|*.*";
                     string originalName = Path.GetFileNameWithoutExtension(inputFile);
                     if (originalName.StartsWith("encrypted_"))
                     {
-                        originalName = originalName.Substring(10); // Remove "encrypted_" prefix
+                        originalName = originalName.Substring(10); // Sklonimo enkripted prefix
                     }
                     saveFileDialog.FileName = $"decrypted_{originalName}";
                     
@@ -304,7 +282,6 @@ namespace ZastitaInformacija_18658
                     }
                 }
                 
-                // Reset dialog
                 openFileDialog.Title = "Izaberite fajl za enkripciju";
                 openFileDialog.Filter = "Svi fajlovi (*.*)|*.*";
             }
@@ -353,7 +330,6 @@ namespace ZastitaInformacija_18658
                 
                 AddNetworkStatus($"Pokretanje servera na portu {port}...");
                 
-                // Wait a moment to let server start
                 await Task.Delay(500);
             }
             catch (Exception ex)
@@ -408,7 +384,6 @@ namespace ZastitaInformacija_18658
                     
                     AddNetworkStatus($"Priprema fajla za slanje: {fileName}");
                     
-                    // Read and encrypt file
                     byte[] fileContent = File.ReadAllBytes(inputFile);
                     EncryptionAlgorithm algorithm = GetSelectedAlgorithm();
                     string key = txtEncryptionKey.Text;
@@ -418,7 +393,6 @@ namespace ZastitaInformacija_18658
                     AddNetworkStatus($"Fajl enkriptovan ({encryptedContent.Length} bajtova)");
                     AddNetworkStatus($"Algoritam: {EncryptionManager.GetAlgorithmDisplayName(algorithm)}");
                     
-                    // Send file
                     string serverAddress = txtServerAddress.Text;
                     int port = (int)numericUpDownTargetPort.Value;
                     
@@ -458,19 +432,16 @@ namespace ZastitaInformacija_18658
                     }
                 }
                 
-                // Ask user if they want to decrypt and save the file
                 DialogResult result = MessageBox.Show($"Da li želite da dekriptujete i sačuvate primljeni fajl '{e.FileName}'?", 
                     "Dekriptovanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 
                 if (result == DialogResult.Yes)
                 {
-                    // Decrypt the file
                     EncryptionAlgorithm algorithm = GetSelectedAlgorithm();
                     string key = txtEncryptionKey.Text;
                     
                     byte[] decryptedContent = EncryptionManager.Decrypt(e.EncryptedData, algorithm, key);
                     
-                    // Save decrypted file
                     saveFileDialog.Title = "Sačuvajte primljeni fajl";
                     saveFileDialog.FileName = $"received_{e.FileName}";
                     
@@ -503,7 +474,7 @@ namespace ZastitaInformacija_18658
             if (radioButtonLEA.Checked) return EncryptionAlgorithm.LEA;
             if (radioButtonCRT.Checked) return EncryptionAlgorithm.CTR;
             
-            return EncryptionAlgorithm.TEA; // Default
+            return EncryptionAlgorithm.TEA;
         }
 
         private string GetSelectedAlgorithmDisplayName()
