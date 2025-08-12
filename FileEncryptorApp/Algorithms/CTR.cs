@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Security.Cryptography;
+using ZastitaInformacija_18658.Utils;
 
 namespace ZastitaInformacija_18658.Algorithms
 {
@@ -78,21 +78,18 @@ namespace ZastitaInformacija_18658.Algorithms
         private static byte[] GenerateIV(string key, byte[] data)
         {
             // Kombinujemo ključ sa hash-om podataka 
-            using (var sha256 = SHA256.Create())
-            {
-                // Hash podataka
-                byte[] dataHash = sha256.ComputeHash(data);
-                
-                // Kombinujemo ključ + hash podataka + salt
-                string input = key + Convert.ToBase64String(dataHash) + "IV_SALT_V2";
-                byte[] combinedBytes = System.Text.Encoding.UTF8.GetBytes(input);
-                byte[] fullHash = sha256.ComputeHash(combinedBytes);
-                
-                // Uzimamo prvih 16 bajtova za IV
-                byte[] iv = new byte[16];
-                Array.Copy(fullHash, iv, 16);
-                return iv;
-            }
+            // Hash podataka
+            byte[] dataHash = HashUtils.ComputeSHA256Hash(data);
+            
+            // Kombinujemo ključ + hash podataka + salt
+            string input = key + Convert.ToBase64String(dataHash) + "IV_SALT_V2";
+            byte[] combinedBytes = System.Text.Encoding.UTF8.GetBytes(input);
+            byte[] fullHash = HashUtils.ComputeSHA256Hash(combinedBytes);
+            
+            // Uzimamo prvih 16 bajtova za IV
+            byte[] iv = new byte[16];
+            Array.Copy(fullHash, iv, 16);
+            return iv;
         }
         
         private static void IncrementCounter(byte[] counter)

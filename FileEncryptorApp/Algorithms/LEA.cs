@@ -1,4 +1,5 @@
 ﻿using System;
+using ZastitaInformacija_18658.Utils;
 
 namespace ZastitaInformacija_18658.Algorithms
 {
@@ -84,12 +85,8 @@ namespace ZastitaInformacija_18658.Algorithms
         private static uint[] GenerateRoundKeys(string key)
         {
             //"zaokruzimo" kljuc hesiranjem na 32 bajta(256 bita)
-            byte[] keyBytes;
-            using (var sha256 = System.Security.Cryptography.SHA256.Create())
-            {
-                byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(key);
-                keyBytes = sha256.ComputeHash(inputBytes);
-            }
+            byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(key);
+            byte[] keyBytes = HashUtils.ComputeSHA256Hash(inputBytes);
 
             // Generisemo masytr key od 16 bajtova(128 bita)
             uint[] masterKey = new uint[4];
