@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.groupBoxAlgorithm = new System.Windows.Forms.GroupBox();
@@ -667,10 +668,14 @@
             this.ClientSize = new System.Drawing.Size(1038, 650);
             this.Controls.Add(this.tabControl);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.MinimumSize = new System.Drawing.Size(1000, 650);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1056, 697);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1056, 697);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "🔐 Zaštita Informacija - Enkriptor/Dekriptor sa TCP";
+            this.Text = "  FileEncryptorApp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tabControl.ResumeLayout(false);
             this.tabSettings.ResumeLayout(false);
