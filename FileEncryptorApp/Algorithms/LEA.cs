@@ -42,7 +42,6 @@ namespace ZastitaInformacija_18658.Algorithms
 
             return result;
         }
-
         public static byte[] Decrypt(byte[] data, string key)
         {
             if (data == null || data.Length < 20) return new byte[0];
@@ -81,7 +80,6 @@ namespace ZastitaInformacija_18658.Algorithms
             Array.Copy(decryptedData, result, originalLength);
             return result;
         }
-
         private static uint[] GenerateRoundKeys(string key)
         {
             //"zaokruzimo" kljuc hesiranjem na 32 bajta(256 bita)
@@ -122,7 +120,6 @@ namespace ZastitaInformacija_18658.Algorithms
 
             return roundKeys;
         }
-
         private static void EncryptBlock(uint[] block, uint[] roundKeys)
         {
             for (int round = 0; round < ROUNDS; round++)
@@ -141,7 +138,6 @@ namespace ZastitaInformacija_18658.Algorithms
                 block[0] = t;
             }
         }
-
         private static void DecryptBlock(uint[] block, uint[] roundKeys)
         {
             for (int round = ROUNDS - 1; round >= 0; round--)
@@ -161,19 +157,16 @@ namespace ZastitaInformacija_18658.Algorithms
                 block[0] = unchecked((RotateRight(temp, 9) - (block[1] ^ roundKeys[round * 6 + 1])) ^ roundKeys[round * 6 + 0]);
             }
         }
-
         private static uint RotateLeft(uint value, int bits)
         {
             bits = bits % 32;
             return (value << bits) | (value >> (32 - bits));
         }
-
         private static uint RotateRight(uint value, int bits)
         {
             bits = bits % 32;
             return (value >> bits) | (value << (32 - bits));
         }
-
         public static byte[] EncryptSingleBlock(byte[] block, string key)
         {
             if (block == null || block.Length != 16)

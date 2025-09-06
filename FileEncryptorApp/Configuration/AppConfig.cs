@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 
 namespace ZastitaInformacija_18658.Configuration
@@ -10,7 +10,7 @@ namespace ZastitaInformacija_18658.Configuration
         public const string DEFAULT_SERVER_ADDRESS = "127.0.0.1";
         
         public const string ENCRYPTED_FILE_PREFIX = "encrypted_";
-        public const string ENCRYPTED_FILE_EXTENSION = ".txt";
+        public const string ENCRYPTED_FILE_EXTENSION = ".enc";
         public const string DECRYPTED_FILE_PREFIX = "decrypted_";
         public const string RECEIVED_FILE_PREFIX = "received_";
         
@@ -33,22 +33,51 @@ namespace ZastitaInformacija_18658.Configuration
         public static string CreateEncryptedFileName(string originalFileName)
         {
             string nameWithoutExtension = Path.GetFileNameWithoutExtension(originalFileName);
-            return $"{ENCRYPTED_FILE_PREFIX}{nameWithoutExtension}{ENCRYPTED_FILE_EXTENSION}";
+            string originalExtension = Path.GetExtension(originalFileName);
+            
+            // Kombinujemo originalno ime + originalnu ekstenziju + encrypted ekstenziju
+            return $"{ENCRYPTED_FILE_PREFIX}{nameWithoutExtension}{originalExtension}{ENCRYPTED_FILE_EXTENSION}";
         }
         
         public static string CreateDecryptedFileName(string encryptedFileName)
         {
-            string nameWithoutExtension = Path.GetFileNameWithoutExtension(encryptedFileName);
-            if (nameWithoutExtension.StartsWith(ENCRYPTED_FILE_PREFIX))
+            // Uklanjamo .enc ekstenziju na kraju
+            string nameWithoutEncExtension = encryptedFileName;
+            if (nameWithoutEncExtension.EndsWith(ENCRYPTED_FILE_EXTENSION))
             {
-                nameWithoutExtension = nameWithoutExtension.Substring(ENCRYPTED_FILE_PREFIX.Length);
+                nameWithoutEncExtension = nameWithoutEncExtension.Substring(0, nameWithoutEncExtension.Length - ENCRYPTED_FILE_EXTENSION.Length);
             }
-            return $"{DECRYPTED_FILE_PREFIX}{nameWithoutExtension}";
+            
+            // Uklanjamo encrypted_ prefix
+            if (nameWithoutEncExtension.StartsWith(ENCRYPTED_FILE_PREFIX))
+            {
+                nameWithoutEncExtension = nameWithoutEncExtension.Substring(ENCRYPTED_FILE_PREFIX.Length);
+            }
+            
+            // Dodajemo decrypted_ prefix pre originalnog imena sa ekstenzijom
+            return $"{DECRYPTED_FILE_PREFIX}{nameWithoutEncExtension}";
         }
         
         public static string CreateReceivedFileName(string originalFileName)
         {
             return $"{RECEIVED_FILE_PREFIX}{originalFileName}";
+        }
+        
+        public static string ExtractOriginalFileName(string encryptedFileName)
+        {
+            string fileName = encryptedFileName;
+            
+            if (fileName.EndsWith(ENCRYPTED_FILE_EXTENSION))
+            {
+                fileName = fileName.Substring(0, fileName.Length - ENCRYPTED_FILE_EXTENSION.Length);
+            }
+
+            if (fileName.StartsWith(ENCRYPTED_FILE_PREFIX))
+            {
+                fileName = fileName.Substring(ENCRYPTED_FILE_PREFIX.Length);
+            }
+            
+            return fileName;
         }
         
         public static bool IsFileSizeValid(long fileSize)

@@ -148,7 +148,7 @@ namespace ZastitaInformacija_18658
         {
             try
             {
-                //Cekamo da budemo sigurni da je fajl potpuno kreiran
+                //Da bi se kreirako skroz fajl 
                 System.Threading.Thread.Sleep(100);
 
                 if (!File.Exists(e.FullPath))
@@ -220,13 +220,14 @@ namespace ZastitaInformacija_18658
                     if (!Directory.Exists(txtOutputFolder.Text))
                         Directory.CreateDirectory(txtOutputFolder.Text);
                     
-                    string originalFileName = Path.GetFileNameWithoutExtension(inputFile);
-                    string outputFileName = $"encrypted_{originalFileName}.txt";
+                    string originalFileName = Path.GetFileName(inputFile);
+                    string outputFileName = AppConfig.CreateEncryptedFileName(originalFileName);
                     string outputPath = Path.Combine(txtOutputFolder.Text, outputFileName);
                     
                     File.WriteAllBytes(outputPath, encryptedContent);
                     AddManualStatus($"Enkriptovani fajl sačuvan: {outputPath}");
                     AddManualStatus($"Algoritam: {EncryptionManager.GetAlgorithmDisplayName(algorithm)}");
+                    AddManualStatus($"Originalna ekstenzija ({Path.GetExtension(originalFileName)}) je sačuvana u imenu fajla");
                 }
             }
             catch (Exception ex)
@@ -247,7 +248,7 @@ namespace ZastitaInformacija_18658
                 }
 
                 openFileDialog.Title = "Izaberite enkriptovani fajl";
-                openFileDialog.Filter = "Enkriptovani fajlovi (*.txt)|*.txt|Svi fajlovi (*.*)|*.*";
+                openFileDialog.Filter = "Enkriptovani fajlovi (*.enc)|*.enc|Svi fajlovi (*.*)|*.*";
                 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -263,20 +264,20 @@ namespace ZastitaInformacija_18658
                     byte[] decryptedContent = EncryptionManager.Decrypt(encryptedContent, algorithm, key);
                     AddManualStatus($"Dekripcija završena. Dekriptovano {decryptedContent.Length} bajtova");
                     
+                    string inputFileName = Path.GetFileName(inputFile);
+                    string originalFileName = AppConfig.ExtractOriginalFileName(inputFileName);
+                    string suggestedFileName = AppConfig.CreateDecryptedFileName(inputFileName);
+                    
                     saveFileDialog.Title = "Sačuvajte dekriptovani fajl";
                     saveFileDialog.Filter = "Svi fajlovi (*.*)|*.*";
-                    string originalName = Path.GetFileNameWithoutExtension(inputFile);
-                    if (originalName.StartsWith("encrypted_"))
-                    {
-                        originalName = originalName.Substring(10); // Sklonimo enkripted prefix
-                    }
-                    saveFileDialog.FileName = $"decrypted_{originalName}";
+                    saveFileDialog.FileName = suggestedFileName;
                     
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         File.WriteAllBytes(saveFileDialog.FileName, decryptedContent);
                         AddManualStatus($"Dekriptovani fajl sačuvan: {saveFileDialog.FileName}");
                         AddManualStatus($"Algoritam: {EncryptionManager.GetAlgorithmDisplayName(algorithm)}");
+                        AddManualStatus($"Originalna ekstenzija ({Path.GetExtension(originalFileName)}) je vraćena");
                         
                         MessageBox.Show("Dekripcija uspešno završena!", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -442,14 +443,19 @@ namespace ZastitaInformacija_18658
                     
                     byte[] decryptedContent = EncryptionManager.Decrypt(e.EncryptedData, algorithm, key);
                     
+                    // Izvlačimo originalno ime fajla sa ekstenzijom
+                    string originalFileName = AppConfig.ExtractOriginalFileName(e.FileName);
+                    string suggestedFileName = AppConfig.CreateReceivedFileName(originalFileName);
+                    
                     saveFileDialog.Title = "Sačuvajte primljeni fajl";
-                    saveFileDialog.FileName = $"received_{e.FileName}";
+                    saveFileDialog.FileName = suggestedFileName;
                     
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         File.WriteAllBytes(saveFileDialog.FileName, decryptedContent);
                         AddNetworkStatus($"Dekriptovani fajl sačuvan: {saveFileDialog.FileName}");
                         AddNetworkStatus($"Dekriptovano {decryptedContent.Length} bajtova");
+                        AddNetworkStatus($"Originalna ekstenzija ({Path.GetExtension(originalFileName)}) je vraćena");
                         
                         MessageBox.Show("Fajl uspešno primljen i dekriptovan!", "Uspeh", 
                             MessageBoxButtons.OK, MessageBoxIcon.Information);

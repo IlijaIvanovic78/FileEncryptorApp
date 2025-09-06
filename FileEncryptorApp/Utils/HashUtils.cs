@@ -58,7 +58,7 @@ namespace ZastitaInformacija_18658.Utils
             long originalLength = data.Length;
             long bitLength = originalLength * 8;
 
-            // Dodaj '1' bit na kraj (0x80 predstavlja 10000000 u binarnom)
+            // Dodaj '1' bit na kraj
             int paddingLength = 1;
             
             // Dodaj nule tako da duzina bude congruent sa 448 mod 512
@@ -71,8 +71,7 @@ namespace ZastitaInformacija_18658.Utils
             Array.Copy(data, 0, paddedMessage, 0, originalLength);
             
             paddedMessage[originalLength] = 0x80; // Dodaj '1' bit
-            
-            // Dodaj originalnu duzinu kao 64-bitni big-endian broj
+
             for (int i = 0; i < 8; i++)
             {
                 paddedMessage[paddedMessage.Length - 1 - i] = (byte)(bitLength >> (i * 8));
